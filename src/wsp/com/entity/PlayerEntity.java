@@ -1,16 +1,19 @@
 package wsp.com.entity;
 
-import java.sql.Date;
+import java.sql.Timestamp;
 
 public class PlayerEntity {
 	private String count;
 	private String ciper;
 	private String name;
 	private String team;
-	private Date day; 
-	private String pictureWay;
-	private int yearOld;
-	private boolean canLoad;
+	private Timestamp day; 
+	private String picture_way;
+	private int old;
+	private boolean can_load;
+	private boolean succeed;
+	private String clickmail;
+	private String readme;
 	public String getCount() {
 		return count;
 	}
@@ -35,28 +38,46 @@ public class PlayerEntity {
 	public void setTeam(String team) {
 		this.team = team;
 	}
-	public Date getDay() {
+	public Timestamp getDay() {
 		return day;
 	}
-	public void setDay(Date day) {
+	public void setDay(Timestamp day) {
 		this.day = day;
 	}
-	public String getPictureWay() {
-		return pictureWay;
+	public String getPicture_way() {
+		return picture_way;
 	}
-	public void setPictureWay(String pictureWay) {
-		this.pictureWay = pictureWay;
+	public void setPicture_way(String pictureWay) {
+		this.picture_way = pictureWay;
 	}
-	public int getYearOld() {
-		return yearOld;
+	public int getOld() {
+		return old;
 	}
-	public void setYearOld(int yearOld) {
-		this.yearOld = yearOld;
+	public void setOld(int yearOld) {
+		this.old = yearOld;
 	}
-	public boolean getCanLoad() {
-		return canLoad;
+	public boolean getCan_load() {
+		return can_load;
 	}
-	public void setCanLoad(boolean canLoad) {
-		this.canLoad = canLoad;
+	public void setCan_load(boolean canLoad) {
+		this.can_load = canLoad;
+	}
+	public String getClickmail() {
+		return clickmail;
+	}
+	public void setClickmail(String clickmail) {
+		this.clickmail = clickmail;
+	}
+	public boolean getSucceed() {
+		return succeed;
+	}
+	public void setSucceed(boolean succeed) {
+		this.succeed = succeed;
+	}
+	public String getReadme() {
+		return readme;
+	}
+	public void setReadme(String readme) {
+		this.readme = readme;
 	}
 }

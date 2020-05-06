@@ -1,11 +1,12 @@
 package wsp.com.entity;
 
 public class ChangeTeamEntity {
-	private int playerId;
+	private String count;
 	private String stand;
 	private String readme;
 	private String pictureWay;
 	private boolean auction;
+	private boolean hasPass;
 	public String getStand() {
 		return stand;
 	}
@@ -24,16 +25,22 @@ public class ChangeTeamEntity {
 	public void setPictureWay(String pictureWay) {
 		this.pictureWay = pictureWay;
 	}
-	public int getPlayerId() {
-		return playerId;
+	public String getPlayerId() {
+		return count;
 	}
-	public void setPlayerId(int playerId) {
-		this.playerId = playerId;
+	public void setPlayerId(String count) {
+		this.count = count;
 	}
-	public boolean isAuction() {
+	public boolean getAuction() {
 		return auction;
 	}
 	public void setAuction(boolean auction) {
 		this.auction = auction;
+	}
+	public boolean getHasPass() {
+		return hasPass;
+	}
+	public void setHasPass(boolean hasPass) {
+		this.hasPass = hasPass;
 	}
 }

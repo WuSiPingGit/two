@@ -11,4 +11,8 @@ public class CommonControl {
 	public boolean canLoad(String count, String ciper, String who) {
 			return commonService.canLoad(count, ciper, who);
 	}
+	
+	//public boolean setMail(String myCount, String toCount, String) {
+	//
+	//}
 }

@@ -12,12 +12,10 @@ import wsp.com.control.CommonControl;
  * @author WSP
  */
 public class LoadServlet extends HttpServlet{
-	
 	CommonControl commonControl = new CommonControl();
 	@Override
 	protected void service(HttpServletRequest arg0, HttpServletResponse arg1) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		System.out.println("aaaaaaaaaaaaaaaa");
 		String check = arg0.getMethod();
 		if (check.equals("GET")) {
 			doGet(arg0, arg1);
@@ -25,12 +23,10 @@ public class LoadServlet extends HttpServlet{
 			doPost(arg0, arg1);
 		}
 	}
-	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 	}
-	
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("UTF-8");
@@ -38,10 +34,19 @@ public class LoadServlet extends HttpServlet{
 		String count = req.getParameter("username");
 		String ciper = req.getParameter("password");
 		String who = req.getParameter("who");
-		if (commonControl.canLoad(count, ciper, who)) {
-			
+		System.out.println(count+"\t"+ciper+"\t"+who);
+		if (who!=null&&commonControl.canLoad(count, ciper, who)) {
+			if (who.equals("管理员")) {
+				req.getRequestDispatcher("/playersView/WebContent/WEB-INF/manager.jsp").forward(req, resp);
+			} else if (who.equals("职业选手")) {
+				req.getRequestDispatcher("/WEB-INF/player.jsp").forward(req, resp);
+			} else {
+				req.getRequestDispatcher("/playersView/WebContent/WEB-INF/teammassager.jsp").forward(req, resp);
+			}
 		} else {
-			resp.getWriter().write("window.alert('错误')");
+			resp.setContentType("text/html;charset=utf-8");
+			resp.addHeader("refresh", "3;url=load.jsp");
+			resp.getWriter().write("输入账号或密码或用户类型错误，3秒后会自动回退");
 		}
 	}
 }
